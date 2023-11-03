@@ -4,9 +4,9 @@ function PostItem(props) {
     return (
         <div className="post">
             <div className="post__content">
-                <strong>1. Javascript</strong>
+                <strong>{props.number}. {props.post.title}</strong>
                 <div>
-                    JavaScript - язык
+                    {props.post.body}
                 </div>
             </div>
             <div className="post__btns">
