@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './styles/App.css';
 import PostList from './components/PostList';
-import FormButton from './components/UI/button/FormButton';
-import FormInput from './components/UI/input/FormInput';
+import PostForm from './components/PostForm';
+import SortSelect from './components/UI/select/SortSelect';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -11,32 +11,32 @@ function App() {
     { id: 3, title: 'JavaScript3', body: 'Description' },
   ])
 
-  const [post, setPost] = useState({ title: '', body: '' });
-
-  const addNewPost = (e) => {
-    e.preventDefault();
-    setPosts([...posts, { ...post, id: Date.now() }])
-    setPost({ title: '', body: '' })
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost])
   }
+
+  const removePost = (post) => {
+    setPosts(posts.filter(p => p.id !== post.id))
+  }
+
 
   return (
     <div className="App">
-      <form>
-        <FormInput
-          value={posts.title}
-          onChange={e => setPost({ ...post, title: e.target.value })}
-          type='text'
-          placeholder='Name post'
+      <PostForm create={createPost} />
+      <hr style={{ margin: '15px 0' }} />
+      <div>
+        <SortSelect
+          defaultValue={'Sort by'}
+          options={[
+            { value: 'title', name: 'Title' },
+            { value: 'body', name: 'Descr' }
+          ]}
         />
-        <FormInput
-          value={posts.body}
-          onChange={e => setPost({ ...post, body: e.target.value })}
-          type='text'
-          placeholder='Description'
-        />
-        <FormButton onClick={addNewPost} >Create Post</FormButton>
-      </form>
-      <PostList posts={posts} title={'Список постов JavaScript'} />
+      </div>
+      {posts.length
+        ? <PostList remove={removePost} posts={posts} title={'Список постов JavaScript'} />
+        : <h1 style={{ textAlign: 'center' }}>Posts is not defined</h1>
+      }
     </div>
   );
 }

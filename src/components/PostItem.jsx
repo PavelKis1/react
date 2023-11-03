@@ -1,4 +1,5 @@
 import React from 'react'
+import FormButton from './UI/button/FormButton'
 
 function PostItem(props) {
     return (
@@ -10,9 +11,9 @@ function PostItem(props) {
                 </div>
             </div>
             <div className="post__btns">
-                <button>
+                <FormButton onClick={() => props.remove(props.post)}>
                     Delete
-                </button>
+                </FormButton>
             </div>
         </div>
     )
