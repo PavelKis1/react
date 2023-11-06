@@ -1,0 +1,24 @@
+.loader {
+    margin: 50px auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px dotted teal;
+    animation: loading 5s linear infinite;
+}
+
+@keyframes loading {
+
+    0% {
+        transform: rotate(0) scale(1);
+    }
+
+    50% {
+        transform: rotate(360deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(720deg) scale(1);
+    }
+
+}
