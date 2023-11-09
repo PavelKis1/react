@@ -45,14 +45,16 @@ function PostsPage() {
                     gap: '20px'
                 }}>
                     {comments.map(comm =>
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '10px',
-                            border: '1px solid teal',
-                            padding: '20px',
+                        <div
+                            key={comm.id}
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '10px',
+                                border: '1px solid teal',
+                                padding: '20px',
 
-                        }}>
+                            }}>
                             <h4>{comm.email}</h4>
                             <div>{comm.body}</div>
                         </div>
