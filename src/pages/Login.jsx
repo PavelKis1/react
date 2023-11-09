@@ -4,7 +4,7 @@ import FormButton from '../components/UI/button/FormButton'
 import { AuthContext } from '../context';
 
 function Login() {
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { setIsAuth } = useContext(AuthContext);
 
     const login = e => {
         e.preventDefault();

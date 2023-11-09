@@ -4,7 +4,7 @@ import FormButton from '../button/FormButton'
 import { AuthContext } from '../../../context'
 
 function Navbar() {
-    const { isAuth, setIsAuth } = useContext(AuthContext);
+    const { setIsAuth } = useContext(AuthContext);
     const logout = () => {
         setIsAuth(false);
         localStorage.removeItem('auth');
