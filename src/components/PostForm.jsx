@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import FormInput from './UI/input/FormInput'
 import FormButton from './UI/button/FormButton';
+
 function PostForm({ create }) {
     const [post, setPost] = useState({ title: '', body: '' });
 

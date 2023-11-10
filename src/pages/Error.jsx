@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function Error() {
     return (
         <div>
@@ -7,6 +8,7 @@ function Error() {
                 Page is not defined
             </h1>
         </div>
+
     )
 }
 
